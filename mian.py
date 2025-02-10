@@ -1,6 +1,6 @@
 class Inventory:
     def __init__(self):
-        # Ingredients stock
+        # Dictionary to hold Meals and their ingredients. Only included main ingredients as of now.
         self.ingredients = {
             "Steak Dinner": {"Steak": 10, "Potatoes": 20, "Garlic Butter": 5},
             "Salmon Dinner": {"Salmon": 8, "Lemon": 10, "Asparagus": 15},
@@ -11,14 +11,14 @@ class Inventory:
     
     def view_inventory(self):
       
-        """Displays current stock of ingredients."""
+        #Displays current stock of ingredients.
         for meal, items in self.ingredients.items():
             print(f"\n{meal}:")
             for ingredient, quantity in items.items():
                 print(f"  {ingredient}: {quantity}")
     
     def update_stock(self, meal, ingredient, amount):
-        """Updates the stock of a specific ingredient."""
+        #Updates the stock of a specific ingredient.
         if meal in self.ingredients and ingredient in self.ingredients[meal]:
             self.ingredients[meal][ingredient] += amount
             print(f"Updated {ingredient} stock for {meal}: {self.ingredients[meal][ingredient]}")
@@ -26,7 +26,7 @@ class Inventory:
             print("Invalid meal or ingredient!")
     
     def check_stock(self, meal):
-        """Checks the stock for a specific meal."""
+        #Checks the stock for a specific meal.
         if meal in self.ingredients:
             print(f"\nStock for {meal}:")
             for ingredient, quantity in self.ingredients[meal].items():
