@@ -8,6 +8,8 @@ class Inventory:
             "Burger": {"Buns": 12, "Beef Patty": 10, "Lettuce": 10, "Tomato": 8, "Cheese": 10},
             "Chicken Soup": {"Chicken": 10, "Carrots": 12, "Celery": 10, "Noodles": 15, "Broth": 8}
         }
+        # Usage history kept here for weekly averaging
+        self.usage_history = {ingredient: [] for meal in self.ingredients for ingredient in self.ingredients [meal]}
     
     def view_inventory(self):
       
@@ -34,6 +36,28 @@ class Inventory:
         else:
             print("Meal not found!")
 
+    def place_order (self, meal):
+        # Deducts ingredients fro inventory and records usage when an order is placed.
+        if meal in self.ingredients:
+            required_ingredients = self.ingredients[meal]
+
+            # Checks if there is enough ingredients/inventory (requires at least 1 per order)
+            for ingredient in required_ingredients:
+                if self.ingredients[meal][ingredient] < 1:
+                    print (f"Not enough {ingredient} to make {meal}. Restock needed.")
+                    return False
+                
+            # Deducts 1 unit per ingredient and records history
+            for ingredient in required_ingredients:
+                self.ingredients[meal][ingredient] -= 1
+                self.usage_history[ingredient].append(1) # Record 1 unit used
+
+            print (f" {meal}  ordered successfully.")
+            return True
+        else: 
+            print("Meal not found!")
+            return False
+
 # Main Program
 def main():
     inventory = Inventory()
@@ -43,6 +67,7 @@ def main():
         print("2. Update Stock")
         print("3. Check Meal Stock")
         print("4. Exit")
+        print("5. Place Order")
         choice = input("Select an option: ")
         
         if choice == "1":
@@ -57,9 +82,17 @@ def main():
             inventory.check_stock(meal)
         elif choice == "4":
             print("Exiting program...")
-            break
+            break           #Exits the loop and terminates the program.
+        elif choice == "5":
+            meal = input("Enter the meal name you want to order:")
+            order_success = inventory.place_order(meal)
+            if order_success:
+                print(f"The order for {meal} has been placed successfully.")
+            else:
+                print(f"Failed to place the order for {meal}.")
         else:
-            print("Invalid choice! Please try again.")
+            print(f"Invalid choice! Please try again.")
+
 
 if __name__ == "__main__":
     main()
