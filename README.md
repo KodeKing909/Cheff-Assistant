@@ -1,5 +1,4 @@
-# Cheff Assistant Project
-
+# Chef Assistant
 ##   How to Set Up and Run the Project on Your Computer
 
 ### **Step 1: Clone the Repository**

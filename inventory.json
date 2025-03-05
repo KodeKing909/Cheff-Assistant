@@ -2,27 +2,28 @@
     "Steak Dinner": {
         "Steak": 10,
         "Potatoes": 20,
-        "Garlic Butter": 5
+        "Garlic Butter": 5,
+        "Asparagus": 5
     },
     "Salmon Dinner": {
         "Salmon": 8,
-        "Lemon": 15,
+        "Lemon": 10,
         "Asparagus": 15
     },
     "Chicken Alfredo": {
         "Chicken Breast": 10,
-        "Pasta": 20,
+        "Pasta": 15,
         "Alfredo Sauce": 8
     },
     "Burger": {
         "Buns": 12,
         "Beef Patty": 10,
-        "Lettuce": 10,
         "Tomato": 8,
-        "Cheese": 10
+        "Cheese": 10,
+        "Potatoes": 10
     },
     "Chicken Soup": {
-        "Chicken": 10,
+        "Chicken Breast": 10,
         "Carrots": 12,
         "Celery": 10,
         "Noodles": 15,
