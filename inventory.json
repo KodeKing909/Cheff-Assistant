@@ -1,14 +1,14 @@
 {
     "Steak Dinner": {
         "Steak": 10,
-        "Potatoes": 20,
-        "Garlic Butter": 5,
+        "Potatoes": 18,
+        "Garlic Butter": 4,
         "Asparagus": 5
     },
     "Salmon Dinner": {
-        "Salmon": 8,
-        "Lemon": 10,
-        "Asparagus": 15
+        "Salmon": 6,
+        "Lemon": 8,
+        "Asparagus": 5
     },
     "Chicken Alfredo": {
         "Chicken Breast": 10,

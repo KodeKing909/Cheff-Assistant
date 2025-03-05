@@ -48,3 +48,4 @@ frame_inventory.pack(pady=10, fill="both", expand=True)
 refresh_inventory()
 
 root.mainloop()
+
