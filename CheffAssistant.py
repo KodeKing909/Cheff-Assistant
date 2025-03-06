@@ -1,6 +1,6 @@
 import json
 import os
-
+          ## Dictionary to hold meals and their corresponging ingredients 
 class Inventory:
     def __init__(self, filename="inventory.json"):
         self.filename = filename
@@ -36,7 +36,7 @@ class Inventory:
                 if self.ingredients[meal][ingredient] < 1:
                     print(f"Not enough {ingredient} to make {meal}. Restock needed.")
                     return False
-            
+                                                ## Deducts the amount of ingredients used per meal every time order is placed. 
             if meal == "Steak Dinner":
                 self.ingredients[meal]["Steak"] -= 1
                 self.ingredients[meal]["Potatoes"] -= 2
