@@ -4,22 +4,46 @@ import os
 class Inventory:
     def __init__(self, filename="inventory.json"):
         self.filename = filename
+
+        # Shared ingredient stock
         self.ingredients = {
-            "Steak Dinner": {"Steak": 10, "Potatoes": 20, "Garlic Butter": 5},
-            "Salmon Dinner": {"Salmon": 8, "Lemon": 10, "Asparagus": 15},
-            "Chicken Alfredo": {"Chicken Breast": 10, "Pasta": 15, "Alfredo Sauce": 8},
-            "Burger": {"Buns": 12, "Beef Patty": 10, "Tomato": 8, "Cheese": 10},
-            "Chicken Soup": {"Chicken": 10, "Carrots": 12, "Celery": 10, "Noodles": 15, "Broth": 8}
+            "Steak": 10,
+            "Potatoes": 20,
+            "Garlic Butter": 5,
+            "Asparagus": 15,
+            "Salmon": 8,
+            "Lemon": 10,
+            "Chicken Breast": 10,
+            "Pasta": 15,
+            "Alfredo Sauce": 8,
+            "Buns": 12,
+            "Beef Patty": 10,
+            "Tomato": 8,
+            "Cheese": 10,
+            "Carrots": 12,
+            "Celery": 10,
+            "Noodles": 15,
+            "Broth": 8
         }
-        self.usage_history = {ingredient: [] for meal in self.ingredients for ingredient in self.ingredients[meal]}
+
+        # Meal recipes (how much of each ingredient a dish uses)
+        self.meal_recipes = {
+            "Steak Dinner": {"Steak": 1, "Potatoes": 2, "Garlic Butter": 1, "Asparagus": 3},
+            "Salmon Dinner": {"Salmon": 1, "Lemon": 1, "Asparagus": 3},
+            "Chicken Alfredo": {"Chicken Breast": 1, "Pasta": 2, "Alfredo Sauce": 1},
+            "Burger": {"Buns": 2, "Beef Patty": 1, "Tomato": 1, "Cheese": 1, "Potatoes": 3},
+            "Chicken Soup": {"Chicken Breast": 1, "Carrots": 2, "Celery": 2, "Noodles": 1, "Broth": 1}
+        }
+
+        self.usage_history = {ingredient: [] for ingredient in self.ingredients}
+
         self.load_inventory()
-    
+
     def save_inventory(self):
         with open(self.filename, "w") as file:
             json.dump(self.ingredients, file, indent=4)
-        file_path = os.path.abspath(self.filename)
-        print(f"Inventory saved successfully at: {file_path}")
-    
+        print(f"Inventory saved successfully at: {os.path.abspath(self.filename)}")
+
     def load_inventory(self):
         try:
             with open(self.filename, "r") as file:
@@ -27,44 +51,34 @@ class Inventory:
             print("Inventory loaded successfully.")
         except FileNotFoundError:
             print("No saved inventory found. Using default values.")
-    
+
     def place_order(self, meal):
-        if meal in self.ingredients:
-            required_ingredients = self.ingredients[meal]
-            
-            for ingredient in required_ingredients:
-                if self.ingredients[meal][ingredient] < 1:
-                    print(f"Not enough {ingredient} to make {meal}. Restock needed.")
-                    return False
-            
-            if meal == "Steak Dinner":
-                self.ingredients[meal]["Steak"] -= 1
-                self.ingredients[meal]["Potatoes"] -= 2
-                self.ingredients[meal]["Garlic Butter"] -= 1
-            elif meal == "Salmon Dinner":
-                self.ingredients[meal]["Salmon"] -= 1
-                self.ingredients[meal]["Lemon"] -= 1
-                self.ingredients[meal]["Asparagus"] -= 5
-            elif meal == "Chicken Alfredo":
-                self.ingredients[meal]["Chicken Breast"] -= 1
-                self.ingredients[meal]["Pasta"] -= 1
-                self.ingredients[meal]["Alfredo Sauce"] -= 1
-            elif meal == "Burger":
-                self.ingredients[meal]["Buns"] -= 2
-                self.ingredients[meal]["Beef Patty"] -= 1
-                self.ingredients[meal]["Tomato"] -= 1
-                self.ingredients[meal]["Cheese"] -= 2
-                self.ingredients[meal].pop("Lettuce", None)
-            elif meal == "Chicken Soup":
-                self.ingredients[meal]["Chicken"] -= 1
-                self.ingredients[meal]["Carrots"] -= 1
-                self.ingredients[meal]["Celery"] -= 2
-                self.ingredients[meal]["Noodles"] -= 1
-            
-            self.save_inventory()
-            print(f"{meal} ordered successfully.")
-            return True
-        else:
+        if meal not in self.meal_recipes:
             print("Meal not found!")
             return False
-        
+
+        recipe = self.meal_recipes[meal]
+
+        # Check if all ingredients are available
+        for ingredient, amount_needed in recipe.items():
+            if self.ingredients.get(ingredient, 0) < amount_needed:
+                print(f"Not enough {ingredient} to make {meal}. Restock needed.")
+                return False
+
+        # Deduct ingredients
+        for ingredient, amount_needed in recipe.items():
+            self.ingredients[ingredient] -= amount_needed
+            self.usage_history[ingredient].append(-amount_needed)
+
+        self.save_inventory()
+        print(f"{meal} ordered successfully.")
+        return True
+
+    def restock_ingredient(self, ingredient, amount):
+        if ingredient in self.ingredients:
+            self.ingredients[ingredient] += amount
+            self.usage_history[ingredient].append(amount)
+            self.save_inventory()
+            print(f"Restocked {ingredient} by {amount} units.")
+        else:
+            print(f"Ingredient '{ingredient}' not found in inventory.")
