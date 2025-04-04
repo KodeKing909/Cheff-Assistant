@@ -58,7 +58,7 @@ python3 -m tkinter
    ```
 2. Run the Tkinter GUI script:
    ```sh
-   python3 CheffAssistant_GUI.py
+   python3 OrderGUI.py
    ```
 
 ---
@@ -66,24 +66,24 @@ python3 -m tkinter
 ### **(Optional) Step 4: Make It Easier to Run**
 #### **1️⃣ Make the Script Executable (Mac/Linux)**
 ```sh
-chmod +x CheffAssistant_GUI.py
-./CheffAssistant_GUI.py
+chmod +x OrderGUI.py
+./OrderGUI.py
 ```
 
 #### **2️⃣ Convert It to a Windows Executable**
 If you want a `.exe` file (Windows):
 ```sh
 pip install pyinstaller
-pyinstaller --onefile --windowed CheffAssistant_GUI.py
+pyinstaller --onefile --windowed OrderGUI.py
 ```
 This will generate an **executable file** inside the `dist/` folder.
 
 ---
 
-##  Summary of Steps
+## Summary of Steps
 1️⃣ **Clone the repository**
    ```sh
-   git clone https://github.com/your-username/cheff-assistant.git
+   git clone https://github.com/KodeKing909/cheff-assistant.git
    cd cheff-assistant
    ```
 2️⃣ **Install Python (if not installed)**
@@ -96,17 +96,5 @@ This will generate an **executable file** inside the `dist/` folder.
    ```
 4️⃣ **Run the Tkinter GUI script**
    ```sh
-   python3 CheffAssistant_GUI.py
+   python3 OrderGUI.py
    ```
-
----
-
-## Contributing
-If you’d like to contribute to the project, feel free to fork the repository and submit pull requests!
-
-For any issues, contact steven.solorzano@csu.fullerton.edu .
-
----
-
-# Enjoy using Cheff Assistant!** 👨🏾‍🍳 🍳 👩🏽‍🍳
-

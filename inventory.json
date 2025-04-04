@@ -1,32 +1,19 @@
 {
-    "Steak Dinner": {
-        "Steak": 10,
-        "Potatoes": 18,
-        "Garlic Butter": 4,
-        "Asparagus": 5
-    },
-    "Salmon Dinner": {
-        "Salmon": 6,
-        "Lemon": 8,
-        "Asparagus": 5
-    },
-    "Chicken Alfredo": {
-        "Chicken Breast": 10,
-        "Pasta": 15,
-        "Alfredo Sauce": 8
-    },
-    "Burger": {
-        "Buns": 12,
-        "Beef Patty": 10,
-        "Tomato": 8,
-        "Cheese": 10,
-        "Potatoes": 10
-    },
-    "Chicken Soup": {
-        "Chicken Breast": 10,
-        "Carrots": 12,
-        "Celery": 10,
-        "Noodles": 15,
-        "Broth": 8
-    }
+    "Steak": 62,
+    "Potatoes": 101,
+    "Garlic Butter": 197,
+    "Asparagus": 588,
+    "Salmon": 799,
+    "Lemon": 99,
+    "Chicken Breast": 98,
+    "Pasta": 148,
+    "Alfredo Sauce": 79,
+    "Buns": 98,
+    "Beef Patty": 98,
+    "Tomato": 78,
+    "Cheese": 98,
+    "Carrots": 118,
+    "Celery": 148,
+    "Noodles": 149,
+    "Broth": 98
 }

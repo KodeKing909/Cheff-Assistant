@@ -1,0 +1,28 @@
+[2025-03-26 23:11:40] Attempting to order Chicken Soup...
+[2025-03-26 23:11:40] ✅ Order placed: Chicken Soup
+[2025-03-26 23:11:44] Attempting to order Burger...
+[2025-03-26 23:11:44] ✅ Order placed: Burger
+[2025-03-26 23:11:49] Attempting to order Chicken Alfredo...
+[2025-03-26 23:11:49] ✅ Order placed: Chicken Alfredo
+[2025-03-26 23:11:53] Attempting to order Salmon Dinner...
+[2025-03-26 23:11:53] ✅ Order placed: Salmon Dinner
+[2025-03-27 09:45:08] ⚠️ CRITICAL: Stock low for 'Steak Dinner' — only 3 can be made.
+[2025-03-27 09:45:08] 📦 Inventory Snapshot:
+    Steak: 3
+    Potatoes: 103
+    Garlic Butter: 198
+    Asparagus: 591
+    Salmon: 799
+    Lemon: 99
+    Chicken Breast: 98
+    Pasta: 148
+    Alfredo Sauce: 79
+    Buns: 98
+    Beef Patty: 98
+    Tomato: 78
+    Cheese: 98
+    Carrots: 118
+    Celery: 148
+    Noodles: 149
+    Broth: 98
+[2025-03-27 10:44:20] ✅ Order placed: Steak Dinner
