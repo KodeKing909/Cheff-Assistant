@@ -2,22 +2,48 @@
     "Steak": [
         20,
         20,
-        20
+        20,
+        -1
     ],
-    "Potatoes": [],
-    "Garlic Butter": [],
-    "Asparagus": [],
+    "Potatoes": [
+        -2,
+        -3
+    ],
+    "Garlic Butter": [
+        -1
+    ],
+    "Asparagus": [
+        -3
+    ],
     "Salmon": [],
     "Lemon": [],
-    "Chicken Breast": [],
+    "Chicken Breast": [
+        -1
+    ],
     "Pasta": [],
     "Alfredo Sauce": [],
-    "Buns": [],
-    "Beef Patty": [],
-    "Tomato": [],
-    "Cheese": [],
-    "Carrots": [],
-    "Celery": [],
-    "Noodles": [],
-    "Broth": []
+    "Buns": [
+        -2
+    ],
+    "Beef Patty": [
+        -1
+    ],
+    "Tomato": [
+        -1
+    ],
+    "Cheese": [
+        -1
+    ],
+    "Carrots": [
+        -2
+    ],
+    "Celery": [
+        -2
+    ],
+    "Noodles": [
+        -1
+    ],
+    "Broth": [
+        -1
+    ]
 }

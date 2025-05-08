@@ -1,1 +1,16 @@
 .DS_Store
+# Ignore Python environments
+venv/
+__pycache__/
+*.pyc
+
+# Ignore log and history files
+logs/
+history/
+*.log
+*.txt
+
+# Ignore build output
+dist/
+build/
+*.spec
